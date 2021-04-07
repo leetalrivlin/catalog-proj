@@ -4921,6 +4921,7 @@ async function query() {
     var products = await storageService.query(PRODUCTS_KEY);
     if (!gProducts || !products.length) products = gProducts
     utilService.saveToStorage(PRODUCTS_KEY, products)
+    console.log('products',products);
     return products;
   } catch (err) {
     console.log('cant load boards', err);

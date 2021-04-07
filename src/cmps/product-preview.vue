@@ -4,7 +4,7 @@
     <img :src="product.ProductImage" alt="" @error="replaceByDefault"/>
     <p>{{ product.StoreName }}</p>
     <p>{{ product.PriceLabel }}</p>
-    <p>{{ product.ProductTitle }}</p>
+    <small>{{ product.ProductTitle }}</small>
   </li>
   </router-link>
 </template>
@@ -15,13 +15,6 @@ export default {
     product: {
       type: Object,
     },
-  },
-  computed: {
-    // productImg() {
-    //   return this.product.ProductImage
-    //     ? product.ProductImage
-    //     : require("@/assets/imgs/default-img.jpg");
-    // },
   },
     methods: {
     replaceByDefault(e) {
