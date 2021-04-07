@@ -1,0 +1,9 @@
+.main-header-container {
+  height: 52px;
+  nav {
+    & > * {
+      font-size: 16px;
+      margin-inline-start: 60px;
+    }
+  }
+}
