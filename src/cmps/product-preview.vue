@@ -1,7 +1,7 @@
 <template>
   <li class="flex column align-center product-preview-container">
     <img :src="product.ProductImage" alt="" />
-    <p>{{ storeName }}</p>
+    <p>{{ product.StoreName }}</p>
     <p>{{ product.PriceLabel }}</p>
     <p>{{ product.ProductTitle }}</p>
   </li>
@@ -13,9 +13,11 @@ export default {
     product: {
       type: Object,
     },
-    storeName: {
-      type: String,
-    },
   },
+  computed: {
+    productImg() {
+      return this.product.ProductImage ? product.ProductImage : 'require(~@/assets/imgs/default-img.jpg)'
+    }
+  }
 };
 </script>

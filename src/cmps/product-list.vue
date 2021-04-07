@@ -4,7 +4,6 @@
       v-for="product in products"
       :key="product.ProductId"
       :product="product"
-      :storeName="storeName"
     />
   </ul>
 </template>
@@ -18,9 +17,6 @@ export default {
   props: {
     products: {
       type: Array,
-    },
-    storeName: {
-      type: String,
     },
   },
 };

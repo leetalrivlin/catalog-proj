@@ -1,7 +1,7 @@
 <template>
-  <section v-if="store">
+  <section v-if="stores">
     <h1>Products</h1>
-    <product-list :products="products" :storeName="store.StoreName"/>
+    <product-list :products="products" />
   </section>
 </template>
 
@@ -11,7 +11,7 @@ import { productService } from '../services/productService.js';
 export default {
   data() {
     return {
-      store: null,
+      stores: null,
       products: null,
     };
   },
@@ -19,14 +19,28 @@ export default {
     productList,
   },
 
+  computed: {
+    //   storeName() {
+    //       return
+    //   }
+  },
+
   methods: {
     async loadStore() {
-      const store = await productService.query();
-      this.store = store;
+      const stores = await productService.query();
+      this.stores = stores;
       this.getProducts();
     },
     getProducts() {
-      this.products = this.store.Products;
+      const products = [];
+      this.stores.forEach((store) => {
+        const storeName = store.StoreName;
+        store.Products.forEach((product) => {
+          product.StoreName = storeName;
+          products.push(product);
+        });
+      });
+      this.products = products;
       console.log(this.products);
     },
   },
