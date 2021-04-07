@@ -1,10 +1,12 @@
 <template>
+ <router-link :to="'/product/' + product.ProductId">
   <li class="flex column align-center product-preview-container">
     <img :src="product.ProductImage" alt="" />
     <p>{{ product.StoreName }}</p>
     <p>{{ product.PriceLabel }}</p>
     <p>{{ product.ProductTitle }}</p>
   </li>
+  </router-link>
 </template>
 
 <script>
@@ -16,8 +18,10 @@ export default {
   },
   computed: {
     productImg() {
-      return this.product.ProductImage ? product.ProductImage : require('@/assets/imgs/default-img.jpg')
-    }
-  }
+      return this.product.ProductImage
+        ? product.ProductImage
+        : require("@/assets/imgs/default-img.jpg");
+    },
+  },
 };
 </script>
