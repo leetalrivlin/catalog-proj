@@ -1,16 +1,17 @@
 <template>
-  <section>
+  <section v-if="store">
     <h1>Products</h1>
-    <product-list />
+    <product-list :products="products" :storeName="store.StoreName"/>
   </section>
 </template>
 
 <script>
-import productList from "../cmps/product-list.vue";
+import productList from '../cmps/product-list.vue';
 import { productService } from '../services/productService.js';
 export default {
   data() {
     return {
+      store: null,
       products: null,
     };
   },
@@ -19,15 +20,19 @@ export default {
   },
 
   methods: {
-    async loadProducts() {
-      const products = await productService.query();
-      this.products = products;
+    async loadStore() {
+      const store = await productService.query();
+      this.store = store;
+      this.getProducts();
+    },
+    getProducts() {
+      this.products = this.store.Products;
       console.log(this.products);
     },
   },
 
   created() {
-    this.loadProducts();
+    this.loadStore();
   },
 };
 </script>

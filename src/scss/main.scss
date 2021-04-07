@@ -12,6 +12,9 @@
 // VIEWS
 @import 'views/app';
 @import 'views/home';
+@import 'views/product-app';
 
 // CMPS
 @import 'cmps/main-header';
+@import 'cmps/product-list';
+@import 'cmps/product-preview';

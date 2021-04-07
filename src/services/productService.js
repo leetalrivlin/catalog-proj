@@ -2,10 +2,8 @@ import { utilService } from './util-service.js'
 import { storageService } from './async-storage-service.js'
 
 
-const STORES_KEY = 'stores'
-const gProducts =
-
-{
+const STORE_KEY = 'store'
+const gStore ={
     "Products": [
         {
             "ProductId": 206419,
@@ -481,9 +479,6 @@ const gProducts =
     "SchedulingType": 1
 }
 
-
-
-
 // utilService.saveToStorage(STORES_KEY, gStores);
 
 export const productService = {
@@ -498,9 +493,10 @@ export const productService = {
 
 async function query() {
     try {
-        var products = await storageService.query(STORES_KEY);
-        if (!gProducts || !products.length) products = gProducts
-        return products;
+        var store = await storageService.query(STORE_KEY);
+        if (!gStore || !store.length) store = gStore
+        utilService.saveToStorage(STORE_KEY, store)
+        return store;
     } catch (err) {
         console.log('cant load boards', err);
     }
@@ -508,19 +504,19 @@ async function query() {
 
 
 function remove(storeId) {
-    return storageService.remove(STORES_KEY, storeId);
+    return storageService.remove(STORE_KEY, storeId);
 }
 
 function save(store) {
     if (store.id) {
-        return storageService.put(STORES_KEY, store);
+        return storageService.put(STORE_KEY, store);
     } else {
-        return storageService.post(STORES_KEY, store);
+        return storageService.post(STORE_KEY, store);
     }
 }
 
 function getById(id) {
-    return storageService.get(STORES_KEY, id);
+    return storageService.get(STORE_KEY, id);
 }
 
 function getEmptyBook() {
