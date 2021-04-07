@@ -1,8 +1,9 @@
 .product-filter-container {
-    .gender-select {
-      width: 200px;
-      padding: 10px;
-      margin: 20px auto;
-    }
- 
+  margin: 20px auto;
+  select {
+    width: 200px;
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 5px;
+  }
 }
