@@ -1,6 +1,6 @@
 <template>
   <section class="main-header-container main-layout flex align-center space-between">
-    <h2>Logo</h2>
+    <h2>Catalog</h2>
     <nav class="flex align-center">
       <router-link to="/">Home</router-link> 
       <span>|</span>
