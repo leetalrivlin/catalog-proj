@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     productImg() {
-      return this.product.ProductImage ? product.ProductImage : 'require(~@/assets/imgs/default-img.jpg)'
+      return this.product.ProductImage ? product.ProductImage : require('~@/assets/imgs/default-img.jpg');
     }
   }
 };
