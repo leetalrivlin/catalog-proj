@@ -1,7 +1,7 @@
 <template>
  <router-link :to="'/product/' + product.ProductId">
   <li class="flex column align-center product-preview-container">
-    <img :src="product.ProductImage" alt="" />
+    <img :src="product.ProductImage" alt="" @error="replaceByDefault"/>
     <p>{{ product.StoreName }}</p>
     <p>{{ product.PriceLabel }}</p>
     <p>{{ product.ProductTitle }}</p>
@@ -17,11 +17,16 @@ export default {
     },
   },
   computed: {
-    productImg() {
-      return this.product.ProductImage
-        ? product.ProductImage
-        : require("@/assets/imgs/default-img.jpg");
-    },
+    // productImg() {
+    //   return this.product.ProductImage
+    //     ? product.ProductImage
+    //     : require("@/assets/imgs/default-img.jpg");
+    // },
   },
+    methods: {
+    replaceByDefault(e) {
+      e.target.src = require("@/assets/imgs/default-img.jpg");
+    }
+  }
 };
 </script>
