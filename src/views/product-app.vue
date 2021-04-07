@@ -1,14 +1,15 @@
 <template>
   <section v-if="stores">
     <h1 class="flex align-center justify-center product-header">Products</h1>
-       <!-- <product-filter @filtered="setFilter" /> -->
+    <product-filter @productsToShow="productsToShow" />
     <product-list :products="products" />
   </section>
 </template>
 
 <script>
-import productList from '../cmps/product-list.vue';
-import { productService } from '../services/productService.js';
+import productList from "../cmps/product-list.vue";
+import productFilter from "../cmps/product-filter.vue";
+import { productService } from "../services/productService.js";
 export default {
   data() {
     return {
@@ -18,6 +19,7 @@ export default {
   },
   components: {
     productList,
+    productFilter,
   },
 
   computed: {
@@ -43,6 +45,15 @@ export default {
       });
       this.products = products;
       console.log(this.products);
+    },
+    productsToShow(filterBy) {
+      if (filterBy === "him") {
+         const productsToShow = this.products.filter((product) => {
+          product.ProductTags.includes(3);
+        });
+        console.log(productsToShow , 'filter');
+        this.products = productsToShow
+      }
     },
   },
 
