@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Raleway, sans-serif;
+  line-height: 1.6;
+  color: $clr1;
+  font-size: rem(16px);
+}
+
+body {
+  margin: 0;
+  background-color: $clr2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Raleway-Bold, sans-serif;
+  margin: 0;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: Raleway, sans-serif;
+  margin: 0;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: rem(16px);
+}
+
+p {
+  font-family: Open-sans, sans-serif;
+  max-width: 48ch;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+/* ROUTES */
+
+a {
+  text-decoration: none;
+  color: $clr1;
+  line-height: 1;
+}
+
+a:focus,
+a.router-link-exact-active {
+  font-weight: bold;
+}
+
+hr {
+  background-color: rgba(9, 30, 66, 0.13);
+  border: 0;
+  height: 1px;
+  margin: 0;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
