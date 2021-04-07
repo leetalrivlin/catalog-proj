@@ -1,6 +1,7 @@
 <template>
   <section v-if="stores">
-    <h1>Products</h1>
+    <h1 class="flex align-center justify-center product-header">Products</h1>
+       <!-- <product-filter @filtered="setFilter" /> -->
     <product-list :products="products" />
   </section>
 </template>
