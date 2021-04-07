@@ -1,5 +1,5 @@
 <template>
-  <div class="home main-content flex column align-center">
+  <div class="home main-layout flex column align-center">
 <h1>Home page</h1>
   </div>
 </template>

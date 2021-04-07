@@ -4941,8 +4941,10 @@ function save(product) {
   }
 }
 
-function getById(id) {
-  return storageService.get(PRODUCTS_KEY, id);
+async function getById(id) {
+  const product = await storageService.get(PRODUCTS_KEY, id);
+  console.log('product in service',product);
+  return product;
 }
 
 function getEmptyBook() {

@@ -15,7 +15,7 @@ function query(entityType) {
 
 function get(entityType, entityId) {
     return query(entityType)
-        .then(entities => entities.find(entity => entity.id === entityId))
+        .then(entities => entities.find(entity => entity.ProductId === +entityId))
 }
 
 function post(entityType, newEntity) {

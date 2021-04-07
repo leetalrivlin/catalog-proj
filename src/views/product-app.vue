@@ -1,6 +1,6 @@
 <template>
   <section v-if="products">
-    <h1 class="flex align-center justify-center product-header">Products</h1>
+    <h1 class="flex align-center justify-center main-layout product-header">Products</h1>
     <product-filter @productsToShow="productsToShow" />
     <product-list :products="products" />
   </section>
